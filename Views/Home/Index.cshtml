@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    //var product = ViewData["product"] as Product;
+    //var product = ViewBag.Product;
+    // var product = TempData["product"] as Product;
+
+    var products = ViewData["products"] as List<Product>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@* @if(@product != null){
+    <h2>@product.Id</h2>
+    <h2>@product.Name</h2>
+    <h2>@product.Description</h2>
+    <h2>@product.Price</h2>
+} *@
+@if (products?.Count > 0)
+{
+    <hr />
+    foreach (var product in products)
+    {
+        <h2>@product.Id</h2>
+        <h2>@product.Name</h2>
+        <h2>@product.Description</h2>
+        <h2>@product.Price</h2>
+        <hr />
+    }
+}
+else
+{
+    <h2>No product found!</h2>
+}
+
